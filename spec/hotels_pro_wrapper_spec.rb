@@ -6,20 +6,13 @@ describe HotelsProWrapper do
   end
 
   it 'can be configured' do
-    HotelsProWrapper.configure do |config|
-      config.environment = 'live'
-      config.username = 'AmazingUsername'
-      config.password = 'WondrousSecret'
-      config.currency = 'USD'
-      config.client_nation = 'Norway'
-      config.destinationd_id = 'NPIK'
-    end
+    setup_configuration
 
-    expect(HotelsProWrapper.configuration.environment).to eq('live')
-    expect(HotelsProWrapper.configuration.username).to eq('AmazingUsername')
-    expect(HotelsProWrapper.configuration.password).to eq('WondrousSecret')
+    expect(HotelsProWrapper.configuration.environment).to eq('test')
+    expect(HotelsProWrapper.configuration.username).to be_truthy
+    expect(HotelsProWrapper.configuration.password).to be_truthy
     expect(HotelsProWrapper.configuration.currency).to eq('USD')
-    expect(HotelsProWrapper.configuration.client_nation).to eq('Norway')
-    expect(HotelsProWrapper.configuration.destination_id).to eq('NPIK')
+    expect(HotelsProWrapper.configuration.client_nationality).to eq('NO')
+    expect(HotelsProWrapper.configuration.destination_code).to eq('1e812')
   end
 end
