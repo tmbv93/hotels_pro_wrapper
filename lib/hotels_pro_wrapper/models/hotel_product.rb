@@ -12,7 +12,7 @@ module HotelsProWrapper
       self.code = product_data['code']
       self.offer = product_data['offer']
       self.pay_at_hotel = product_data['pay_at_hotel']
-      self.price = product_data['price'].to_i
+      self.price = product_data['price'].to_f
       self.currency = product_data['currency']
 
       self.rooms = []
